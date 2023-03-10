@@ -1,0 +1,177 @@
+project:
+  name: dap-test
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER # 新版spring boot swagger 要加這個材能運作
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:com}
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+    hibernate:
+      use-new-id-generator-mappings: false
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+  datasource:
+    hikari:
+      minimumIdle: 2
+      maximumPoolSize: 10
+      idleTimeout: 600000
+      connectionTimeout: 500000
+      leakDetectionThreshold: 500000
+  jackson:
+    serialization:
+      indent-output: true
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 200MB
+      max-request-size: 215MB
+
+jwt:
+  key: ${JWT_KEY:TqCcKtU1MRmdQLXzYW7EnMVbPZ3kWSK9tEoiI9BCAtU=}
+  exp: ${JWT_EXP:30}
+jasypt:
+  encryptor:
+    password: ${JASYPT_PASSWORD:KF23faT1asf3fasr34}
+
+
+logging:
+  level:
+    root: INFO
+  config: classpath:log4j2.xml
+
+dap:
+  mock: false
+
+sso:
+  url: http://10.16.22.108/TBBEPortalServlet/eportal
+  rest: http://10.16.22.108/TBBWebService/rest
+  ap-name: aps
+  api-user-name: aps
+  api-soci: aps4321
+
+video:
+  bu: TBB
+  secret: 3fdbabb16d6c40e2994573cdea8d8d8d
+
+mq:
+  ip: 10.16.22.49
+  port: 1414
+
+N203:
+  CHGE_CY:
+    A: 63000000
+    B: 10001000
+    C: 65000000
+    D: 10017000
+    E: 10002000
+    F: 68000000
+    G: 10003000
+    H: 10018000
+    I: 10004000
+    J: 10005000
+    K: 66000000
+    L: 10006000
+    M: 10007000
+    N: 10008000
+    O: 10009000
+    P: 10020000
+    Q: 10010000
+    R: 67000000
+    S: 10011000
+    T: 64000000
+    U: 10012000
+    V: 10013000
+    W: 10014000
+    X: 10015000
+    Y: 10016000
+    Z: 09007000
+    0: 09020000
+
+aml:
+  uri: http://10.16.22.36:8080/wlsr-ws/soap/new/listFormZh?wsdl
+  referenceUri: http://10.16.22.36:8080/wlsr-ws/soap/reference/list?wsdl
+  connectionTimeout: 30
+  receiveTimeout: 30
+
+eai:
+  uri: ${EAI_URL:https://neaint.tbb.com.tw/blueStar/MsgHandler.asmx}
+  isMock: false
+
+dataPower:
+  uri: ${DATAPOWER_URL:https://tsipt.tbb.com.tw}
+  port: ${DATAPOWER_PORT:443}
+
+WebService:
+  URI: http://10.16.22.125/billhunter_app/bhwebservice.asmx
+  SendMail:
+    URI: http://10.16.22.125/Billhunter_api/BillHunterService.asmx
+    SenderMailBatch: eatm@mail.tbb.com.tw
+    TemplateNo: 4
+    ProjectID: 50002
+    SenderMail: eatm@mail.tbb.com.tw
+
+WebService_ChangePwd:
+  URI: http://10.16.22.125/billhunter_app/easyuse_web_changepwd.asmx
+
+
+smtp:
+  host: 10.16.21.124
+  port: 25
+  account: eatm
+  password:
+  mail_from: eatm@mail.tbb.com.tw
+  mail_from_batch: eatm@mail.tbb.com.tw
+
+
+idcard:
+  canEdit: false
+
+etabs:
+  ftp:
+    ip: 172.22.11.72
+    port: 21
+    name: ftptab4
+    pwd: Abcd1234
+    path: /tab/upload/nbpics/
+    ctg_path: /tab/upload/
+
+e2e:
+  url: http://172.22.11.94:8080/SS6/
+  privateKey: ${PRE_KEY_PATH:C:\\trust\\TESTAPSapiKey.pem}
+  keyName: TESTAPS_RSA2048O
+  keyLabel: B050NTKPP1O
+  isE2E: Y
+  applicationName: APS
+  mock: true
+
+otp:
+  mock: true
+  ip: ${OTP_IP:172.22.11.76}
+  port: ${OTP_PORT:1911}
+
+va:
+  uri: http://10.16.22.214:6589/iSecSvr/mod/omni/iGnrSvs.run
+  id: APS
+  pwd: Abcd1234
+  timeout: 30
+  mock: true
+# 內政部查驗網址
+moi:
+  apId: xxxxx # TODO 等待台企提供
+  orgId: xxxxx # TODO 等待台企提供
+  issKey: xxxxx # TODO 等待台企提供
+  privateKeyName: xxxxx # TODO 等待台企提供
+  url: https://rwa.moi.gov.tw:1443/integration/rwv2c2/
+  x-keyId: 49147f88-b72f-46ca-b56b-a982ed1d08d1
+  test: N
+email:
+  validator:
+    url: https://10.17.20.50
+    test: false
+

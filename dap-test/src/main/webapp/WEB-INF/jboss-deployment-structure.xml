@@ -1,0 +1,22 @@
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+            <module name='org.slf4j'/>
+            <module name='org.slf4j.impl'/>
+        </exclusions>
+        <exclude-subsystems>
+            <subsystem name="logging"/>
+            <subsystem name="webservices"/>
+        </exclude-subsystems>
+<!--        <dependencies>-->
+<!--            <module name="org.jboss.ws.cxf.jbossws-cxf-client" services="import" />-->
+<!--            <module name="org.apache.cxf.impl">-->
+<!--                <imports>-->
+<!--                    <include path="META-INF"/>-->
+<!--                    <include path="META-INF/cxf"/>-->
+<!--                </imports>-->
+<!--            </module>-->
+<!--            &lt;!&ndash; ... &ndash;&gt;-->
+<!--        </dependencies>-->
+    </deployment>
+</jboss-deployment-structure>
